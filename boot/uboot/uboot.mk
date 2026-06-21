@@ -182,7 +182,7 @@ UBOOT_MAKE_OPTS += KCFLAGS=-mno-fdpic
 endif
 
 ifeq ($(BR2_TARGET_UBOOT_NEEDS_TPL),y)
-#UBOOT_DEPENDENCIES += rockchip-blobs
+UBOOT_DEPENDENCIES += rockchip-blobs
 UBOOT_MAKE_OPTS += ROCKCHIP_TPL=ram_init.bin
 define UBOOT_COPY_TPL_FIRMWARE
 	cp $(BINARIES_DIR)/ram_init.bin $(@D)/
