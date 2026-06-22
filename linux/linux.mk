@@ -495,7 +495,7 @@ endef
 endif # BR2_LINUX_KERNEL_APPENDED_DTB
 ifeq ($(BR2_LINUX_KERNEL_INSTALL_INTREE_OVERLAYS),y)
 define LINUX_INSTALL_OVERLAYS
-	install -D -t $(1)/overlays/ \
+	install -D -t $(1)/ \
 			$(wildcard $(LINUX_ARCH_PATH)/boot/dts/overlays/*.dtbo)
 endef
 endif # BR2_LINUX_KERNEL_INSTALL_INTREE_OVERLAYS
