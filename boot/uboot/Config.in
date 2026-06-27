@@ -277,6 +277,7 @@ endchoice
 
 config BR2_TARGET_UBOOT_NEEDS_TPL
 	bool "U-Boot needs TPL binary"
+	depends on BR2_PACKAGE_ROCKCHIP_RKBIN
 
 config BR2_TARGET_UBOOT_NEEDS_OPTEE_TEE
 	bool "U-Boot needs OPTEE TEE"
