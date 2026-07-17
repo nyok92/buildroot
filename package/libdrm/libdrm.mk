@@ -76,12 +76,6 @@ else
 LIBDRM_CONF_OPTS += -Detnaviv=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_LIBDRM_ROCKET),y)
-LIBDRM_CONF_OPTS += -Drocket=enabled
-else
-LIBDRM_CONF_OPTS += -Drocket=disabled
-endif
-
 ifeq ($(BR2_PACKAGE_LIBDRM_EXYNOS),y)
 LIBDRM_CONF_OPTS += -Dexynos=enabled
 else
@@ -133,7 +127,6 @@ HOST_LIBDRM_CONF_OPTS = \
 	-Damdgpu=disabled \
 	-Dcairo-tests=disabled \
 	-Detnaviv=disabled \
-	-Drocket=disabled \
 	-Dexynos=disabled \
 	-Dfreedreno=disabled \
 	-Dfreedreno-kgsl=false \
