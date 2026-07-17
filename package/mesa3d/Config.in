@@ -145,7 +145,6 @@ config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_ROCKET
 	bool "Gallium Rocket driver"
 	depends on BR2_TOOLCHAIN_HAS_SYNC_4 || !BR2_PACKAGE_XORG7 # libxshmfence
 	select BR2_PACKAGE_MESA3D_GALLIUM_DRIVER
-	select BR2_PACKAGE_LIBDRM_ROCKET
 	help
 	  Mesa driver for Rocket NPU.
 
