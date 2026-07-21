@@ -380,6 +380,9 @@ define HOST_MESA3D_INSTALL_CMDS
 	$(HOST_MESA3D_INSTALL_PANFROST_COMPILE)
 	$(HOST_MESA3D_INSTALL_PCO_CLC)
 endef
+# 0009-spirv-Use-STACK_ARRAY-instead-of-NIR_VLA.patch
+# 0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA.patch
+MESA3D_IGNORE_CVES += CVE-2026-40393
 
 $(eval $(meson-package))
 $(eval $(host-meson-package))
