@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-EROFS_UTILS_VERSION = 1.8.5
+EROFS_UTILS_VERSION = 1.8.10
 EROFS_UTILS_SITE = https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot
 EROFS_UTILS_LICENSE = GPL-2.0+, GPL-2.0+ or Apache-2.0 (liberofs)
 EROFS_UTILS_LICENSE_FILES = COPYING LICENSES/Apache-2.0 LICENSES/GPL-2.0
@@ -76,6 +76,10 @@ HOST_EROFS_UTILS_CONF_OPTS += \
 	--without-libzstd \
 	--without-selinux \
 	--without-zlib
+
+ifeq ($(BR2_PACKAGE_HOST_EROFS_UTILS_MULTITHREADING),y)
+HOST_EROFS_UTILS_CONF_OPTS += --enable-multithreading
+endif
 
 $(eval $(autotools-package))
 $(eval $(host-autotools-package))
