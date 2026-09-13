@@ -7,7 +7,11 @@
 FFMPEG_VERSION = ($(call qstrip,$(BR2_PACKAGE_FFMPEG_VERSION)),9.0.1)
 FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.xz
 FFMPEG_SITE = https://ffmpeg.org/releases
+
+ifeq ($(BR2_PACKAGE_FFMPEG_CUSTOM_GIT),y)
 FFMPEG_SITE_METHOD = git
+endif
+
 FFMPEG_INSTALL_STAGING = YES
 
 FFMPEG_LICENSE = LGPL-2.1+, libjpeg license
