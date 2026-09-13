@@ -32,12 +32,12 @@ config BR2_PACKAGE_FFMPEG_CUSTOM_GIT
 	   allow use of git source to build package
 
 config BR2_PACKAGE_FFMPEG_CUSTOM_REPO_URL
-    string
+        string
 	help
 	   url of the git source tree
 
 config BR2_PACKAGE_FFMPEG_CUSTOM_REPO_VERSION
-    string
+        string
 	help
 	   some_commit_id_or_tag_or_branch_name
 
