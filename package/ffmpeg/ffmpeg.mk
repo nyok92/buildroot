@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-FFMPEG_VERSION = 9.0.1
+FFMPEG_VERSION = ($(call qstrip,$(BR2_PACKAGE_FFMPEG_VERSION)),9.0.1)
 FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.xz
 FFMPEG_SITE = https://ffmpeg.org/releases
 FFMPEG_SITE_METHOD = git
