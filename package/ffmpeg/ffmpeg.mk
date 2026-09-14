@@ -4,14 +4,14 @@
 #
 ################################################################################
 
+FFMPEG_VERSION = $(call qstrip,$(BR2_PACKAGE_FFMPEG_VERSION))
+FFMPEG_SITE = https://ffmpeg.org/releases
+FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.xz
+
 ifeq ($(BR2_PACKAGE_FFMPEG_CUSTOM_GIT),y)
 FFMPEG_SITE_METHOD = git
 FFMPEG_SITE = $(call qstrip,$(BR2_PACKAGE_FFMPEG_CUSTOM_REPO_URL))
 FFMPEG_VERSION = $(call qstrip,$(BR2_PACKAGE_FFMPEG_CUSTOM_REPO_VERSION))
-else
-FFMPEG_VERSION = $(call qstrip,$(BR2_PACKAGE_FFMPEG_VERSION))
-FFMPEG_SITE = https://ffmpeg.org/releases
-FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.xz
 endif
 
 FFMPEG_INSTALL_STAGING = YES
