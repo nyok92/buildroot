@@ -129,12 +129,6 @@ else
 FFMPEG_CONF_OPTS += --disable-libxcb
 endif
 
-ifeq ($(BR2_PACKAGE_FFMPEG_POSTPROC),y)
-FFMPEG_CONF_OPTS += --enable-postproc
-else
-FFMPEG_CONF_OPTS += --disable-postproc
-endif
-
 ifeq ($(BR2_PACKAGE_FFMPEG_SWSCALE),y)
 FFMPEG_CONF_OPTS += --enable-swscale
 else
