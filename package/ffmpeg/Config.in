@@ -26,7 +26,7 @@ menuconfig BR2_PACKAGE_FFMPEG
 if BR2_PACKAGE_FFMPEG
 
 config BR2_PACKAGE_FFMPEG_VERSION
-    string
+        string
 	help
 	   tarball ffmpeg version
 
