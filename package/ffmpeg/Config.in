@@ -25,6 +25,11 @@ menuconfig BR2_PACKAGE_FFMPEG
 
 if BR2_PACKAGE_FFMPEG
 
+config BR2_PACKAGE_FFMPEG_VERSION
+    string
+	help
+	   tarball ffmpeg version
+
 config BR2_PACKAGE_FFMPEG_CUSTOM_GIT
 	bool
 	default n
