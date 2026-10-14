@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-TENSORFLOW_LITE_VERSION = 2.11.0
+TENSORFLOW_LITE_VERSION = 2.21.0
 TENSORFLOW_LITE_SITE =  $(call github,tensorflow,tensorflow,v$(TENSORFLOW_LITE_VERSION))
 TENSORFLOW_LITE_INSTALL_STAGING = YES
 TENSORFLOW_LITE_LICENSE = Apache-2.0
