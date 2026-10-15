@@ -63,6 +63,12 @@ define TENSORFLOW_LITE_ML_DTYPES_FIX
 endef
 TENSORFLOW_LITE_PRE_CONFIGURE_HOOKS += TENSORFLOW_LITE_ML_DTYPES_FIX
 
+define TENSORFLOW_LITE_DISABLE_PROTO_SUBDIRS
+	$(SED) '/add_subdirectory(.*\(profiling\/proto\|tools\/benchmark\|examples\/label_image\|core\/example\)/ s/^/#/' \
+		$(@D)/tensorflow/lite/CMakeLists.txt
+endef
+TENSORFLOW_LITE_PRE_CONFIGURE_HOOKS += TENSORFLOW_LITE_DISABLE_PROTO_SUBDIRS
+
 ifeq ($(BR2_PACKAGE_RUY),y)
 TENSORFLOW_LITE_DEPENDENCIES += ruy
 TENSORFLOW_LITE_CONF_OPTS += -DTFLITE_ENABLE_RUY=ON
