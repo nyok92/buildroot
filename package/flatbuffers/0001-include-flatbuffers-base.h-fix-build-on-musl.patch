@@ -40,7 +40,7 @@ diff --git a/include/flatbuffers/base.h b/include/flatbuffers/base.h
 index de7898dc..101c7598 100644
 --- a/include/flatbuffers/base.h
 +++ b/include/flatbuffers/base.h
-@@ -270,7 +270,8 @@ namespace flatbuffers {
+@@ -270,7 +270,8 @@
    // strtoull_l}.
    #if (defined(_MSC_VER) && _MSC_VER >= 1800) || \
        (defined(__ANDROID_API__) && __ANDROID_API__>= 21) || \

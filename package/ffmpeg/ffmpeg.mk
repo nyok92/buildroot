@@ -4,9 +4,16 @@
 #
 ################################################################################
 
-FFMPEG_VERSION = 6.1.5
-FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.xz
+FFMPEG_VERSION = $(call qstrip,$(BR2_PACKAGE_FFMPEG_VERSION))
 FFMPEG_SITE = https://ffmpeg.org/releases
+FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.xz
+
+ifeq ($(BR2_PACKAGE_FFMPEG_CUSTOM_GIT),y)
+FFMPEG_SITE_METHOD = git
+FFMPEG_SITE = $(call qstrip,$(BR2_PACKAGE_FFMPEG_CUSTOM_REPO_URL))
+FFMPEG_VERSION = $(call qstrip,$(BR2_PACKAGE_FFMPEG_CUSTOM_REPO_VERSION))
+endif
+
 FFMPEG_INSTALL_STAGING = YES
 
 FFMPEG_LICENSE = LGPL-2.1+, libjpeg license
@@ -32,7 +39,6 @@ FFMPEG_CONF_OPTS = \
 	--disable-gray \
 	--enable-swscale-alpha \
 	--disable-small \
-	--disable-crystalhd \
 	--disable-dxva2 \
 	--enable-runtime-cpudetect \
 	--disable-hardcoded-tables \
@@ -121,12 +127,6 @@ FFMPEG_CONF_OPTS += \
 FFMPEG_DEPENDENCIES += libxcb
 else
 FFMPEG_CONF_OPTS += --disable-libxcb
-endif
-
-ifeq ($(BR2_PACKAGE_FFMPEG_POSTPROC),y)
-FFMPEG_CONF_OPTS += --enable-postproc
-else
-FFMPEG_CONF_OPTS += --disable-postproc
 endif
 
 ifeq ($(BR2_PACKAGE_FFMPEG_SWSCALE),y)
@@ -282,19 +282,6 @@ FFMPEG_CONF_OPTS += --enable-vdpau
 FFMPEG_DEPENDENCIES += libvdpau
 else
 FFMPEG_CONF_OPTS += --disable-vdpau
-endif
-
-ifeq ($(BR2_PACKAGE_RPI_USERLAND),y)
-FFMPEG_CONF_OPTS += --enable-omx --enable-omx-rpi \
-	--extra-cflags=-I$(STAGING_DIR)/usr/include/IL
-FFMPEG_DEPENDENCIES += rpi-userland
-ifeq ($(BR2_arm),y)
-FFMPEG_CONF_OPTS += --enable-mmal
-else
-FFMPEG_CONF_OPTS += --disable-mmal
-endif
-else
-FFMPEG_CONF_OPTS += --disable-mmal --disable-omx --disable-omx-rpi
 endif
 
 ifeq ($(BR2_PACKAGE_OPENCV3_LIB_IMGPROC),y)
